@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" href="/images/favicon.png">
 
 {{ $title         := cond $isHome site.Title (printf "%s · %s" .Title site.Title) }}
-{{ $ogImageUrl    := ("images/logo-large.svg" | absURL) }}
+{{ $ogImageUrl    := ("images/logo_nobackground.png" | absURL) }}
 {{ $ogType        := cond $isHome "website" "article" }}
 
 <!-- Facebook / OpenGraph metadata-->
@@ -31,7 +31,7 @@
 
 <!-- Twitter Card metadata -->
 {{ $twType      := cond $isHome "summary_large_image" "summary"}}
-{{ $twImageUrl  := (cond $isHome "images/logo-large.svg" "images/logo.svg" ) | absURL }}
+{{ $twImageUrl  := (cond $isHome "images/logo_nobackground.png" "images/logo_nobackground.png" ) | absURL }}
 {{ $twHandle    := site.Params.twitter_handle }}
 <meta property="twitter:title" content="{{ $title }}">
 <meta property="twitter:card" content="{{ $twType }}">
