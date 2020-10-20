@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" href="/images/favicon.png">
 
 {{ $title         := cond $isHome site.Title (printf "%s · %s" .Title site.Title) }}
-{{ $ogImageUrl    := ("images/buildpacks-social-card.jpg" | absURL) }}
+{{ $ogImageUrl    := ("images/logo-large.svg" | absURL) }}
 {{ $ogType        := cond $isHome "website" "article" }}
 
 <!-- Facebook / OpenGraph metadata-->
@@ -25,17 +25,17 @@
 {{- end }}
 <meta property="og:type" content="{{ $ogType }}">
 <meta property="og:image" content="{{ $ogImageUrl }}">
-<meta property="og:image:alt" content="Buildpacks project logo">
+<meta property="og:image:alt" content="CF for K8s project logo">
 <meta property="og:image:type" content="image/jpeg">
 
 
 <!-- Twitter Card metadata -->
 {{ $twType      := cond $isHome "summary_large_image" "summary"}}
-{{ $twImageUrl  := (cond $isHome "images/buildpacks-social-card.jpg" "images/buildpacks-social-card-square.jpg" ) | absURL }}
+{{ $twImageUrl  := (cond $isHome "images/logo-large.svg" "images/logo.svg" ) | absURL }}
 {{ $twHandle    := site.Params.twitter_handle }}
 <meta property="twitter:title" content="{{ $title }}">
 <meta property="twitter:card" content="{{ $twType }}">
 <meta property="twitter:image" content="{{ $twImageUrl }}">
-<meta property="twitter:image:alt" content="Buildpacks project logo">
+<meta property="twitter:image:alt" content="CF for K8s project logo">
 <meta property="twitter:site" content="@{{ $twHandle }}">
 <meta property="twitter:creator" content="@{{ $twHandle }}">
