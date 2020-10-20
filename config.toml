@@ -11,7 +11,7 @@ pygmentsCodefences = true
 unsafe= true
 
 [params]
-github_base_url = "https://github.com/cloudfoundry/cf-for-k8s-docs/content/docs"
+github_base_url = "https://github.com/cloudfoundry/cf-for-k8s-docs"
 slack_invite_url = "https://cloudfoundry.slack.com/archives/CH9LF6V1P"
 description = "Cloud Foundry is an open source cloud platform as a service (PaaS) on which developers can build, deploy, run and scale applications. "
 
@@ -25,13 +25,13 @@ description = "Cloud Foundry is an open source cloud platform as a service (PaaS
   [[menu.main]]
   identifier = "features"
   name       = "Features"
-  url        = "/features"
+  url        = "/features/"
   weight     = 2
 
   [[menu.main]]
   identifier = "docs"
   name       = "Docs"
-  url        = "/docs"
+  url        = "/docs/"
   weight     = 3
 
   [[menu.main]]
