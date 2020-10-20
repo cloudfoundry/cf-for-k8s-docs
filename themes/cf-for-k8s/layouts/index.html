@@ -1,0 +1,85 @@
+{{ define "main" }}
+
+<div class="hero">
+  <div class="image">
+    <img src="/images/hero-circle.png" />
+  </div>
+  <section class="container">
+    <h2 class="px-4">
+      Push application source code to <span class="text-blue">Kubernetes</span> with the <span class="text-blue">Cloud Foundry</span> developer API
+    </h2>
+    <p class="button-holder">
+      <a href="https://github.com/cloudfoundry/cf-for-k8s" class="bg-white button">Get Started</a>
+    </p>
+  </section>
+</div>
+
+<div id="learn-more" class="container content pb-4">
+  <section class="row highlights text-center">
+    <div class="col-sm bg-light block">
+      <div class="icon">
+        <img src="/images/clock.png" />
+      </div>
+      <h3 class="mb-0">Deploy code to production in minutes</h3>
+      <p>One simple command, 
+        cf push, assembles your tested code, and deploys it atop Kubernetes.</p>
+    </div>
+    <div class="col-sm bg-light block">
+      <div class="icon">
+        <img src="/images/check.png" />
+      </div>
+      <h3 class="mb-0">A complete developer API</h3>
+      <p>Push code to prod, attach backing services, set up routes. Egress logs and metrics.</p>
+    </div>
+    <div class="col-sm bg-light block">
+      <div class="icon">
+        <img src="/images/infrastructure-providers.png" />
+      </div>
+      <h3 class="mb-0">Runs on any Kubernetes environment</h3>
+      <p>One simple command, cf push, assembles your tested code, and deploys it atop Kubernetes.</p>
+    </div>
+  </section>
+
+  <div class="extended-background">
+    <h2 class="mb-0">Why cf-for-k8s?</h2>
+    <section class="row highlights mt-2 mb-2">
+      <div class="col-sm">
+        <h3 class="pb-2">A proven developer API, integrated with cutting-edge infrastructure</h3>
+        <p>cf-for-k8s thoughtfully combines the Cloud Foundry developer API with other popular open source projects like Kubernetes, Istio, Envoy, and Fluentd. The project uses custom resource definitions (CRDs) and other Kubernetes primitives to deliver a familiar developer experience atop new components.</p>
+      </div>
+      <div class="col-sm">
+        <h3 class="pb-2">Run your app platform in more places</h3>
+        <p>cf-for-k8s retains one of the original promises of Cloud Foundry: the flexibility to run on your choice of infrastructure. It’s never been easier to cf push on your laptop, in your data center, in the public cloud, or at the edge.</p>
+      </div>
+      <div class="col-sm">
+        <h3 class="pb-2">Get started quickly with a small footprint</h3>
+        <p>In cf-for-k8s, the Cloud Foundry control plane and your custom software both run as Kubernetes apps, in their own distinct namespaces. As a result, the project has a lean footprint. Download cf-for-k8s and install it on your local Kubernetes environment - or any other conformant cluster - in minutes.</p>
+      </div>
+    </section>
+  </div>
+  
+  <section class="row project pt-5 pb-5">
+    <div class="text">
+      <h2>About the Project</h2>
+      <p>The Cloud Foundry community has spent the last few years evolving the Cloud Foundry architecture to include Kubernetes and other cloud native open source projects, and by taking pieces of the Cloud Foundry architecture and making them useful within Kubernetes environments on their own. cf-for-k8s is one of the projects that reflects this focus.</p>
+    </div>
+    <div class="image">
+      <img src="/images/logo-large.svg" />
+    </div>
+  </section>
+</div>
+
+<div id="get-started" class="get-started bg-blue">
+  <section class="container text-white text-center">
+    <p class="h2 text-white">Getting Started</p>
+    <p class="text-white info">The fastest way to try cf-for-k8s is with <a href="https://kind.sigs.k8s.io/docs/user/quick-start/" class="text-medium-blue">kind</a> on your desktop.</p>
+    <p class="text-white">Try out our tutorial to get started quickly!</p>
+
+    <p>
+      <a href="/docs/" class="button bg-white">Start Tutorial</a>
+      <a href="/docs/" class="button bg-none text-white btn-light">Read the Docs</a>
+    </p>
+  </section>
+</div>
+
+{{ end }}

@@ -1,0 +1,26 @@
+/**********************************
+
+Text Note
+
+**********************************/
+
+.text-note,
+blockquote {
+  background-color: #1692B9;
+  padding: 20px;
+  font-size: .9rem;
+  line-height: 180%;
+
+  h3 {
+    color: inherit;
+    font-size: larger;
+  }
+
+  p {
+    margin: 0;
+    color: $white;
+  }
+  code {
+    color: $navy-blue;
+  }
+}

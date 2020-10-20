@@ -1,0 +1,62 @@
+/**********************************
+
+Colors
+
+**********************************/
+
+/* Primary colors */
+$pink: #DF0A6B;
+$blue-dark: #242960;
+$blue-light: #47529E;
+$navy-blue: #1B3951;
+$bright-blue: #00BCE9;
+$medium-blue: #2977BC;
+
+/* Shades */
+$white: #FFFFFF;
+$off-white: #F8F9FA;
+$off-gray: #EFEFEF;
+$gray-light: #7C6E75;
+$gray-dark: #302C2E;
+$black: #000000;
+$light-blue: #edfafd;
+
+.text-pink {
+  color: $pink;
+}
+
+.bg-pink {
+  background-color: $pink;
+}
+
+.text-blue {
+  color: $navy-blue;
+}
+
+.bg-blue {
+  background-color: $navy-blue;
+}
+
+.bg-none {
+  background-color: unset;
+}
+
+.bg-white {
+  background-color: $white;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-medium-blue {
+  color: $medium-blue;
+}

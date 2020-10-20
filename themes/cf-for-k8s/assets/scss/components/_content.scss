@@ -1,0 +1,127 @@
+/**********************************
+
+Content
+
+**********************************/
+
+.content {
+  h2 {
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0 0 30px 0;
+    padding: 0;
+    
+    li {
+      border-left: 1px solid #D1D4E7;
+      color: $blue-light;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+  }
+  .extended-background {
+    background-color: $light-blue;
+    margin: 0px -200px;
+    padding: 60px 200px 40px 200px;
+    .row {
+      margin: 0px;
+      .col-sm {
+        padding: 0px 30px;
+        &:first-of-type {
+          padding-left: 0px;
+        }
+        &:last-of-type {
+          padding-right: 0px;
+        }
+        @media (max-width: 768px) {
+          padding: 0px 20px;
+          &:first-of-type {
+            padding-left: 20px;
+          }
+          &:last-of-type {
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      padding: 50px 20px 20px 20px;
+      margin: 0px -20px;
+      .row {
+        margin: 0px -20px;
+      }
+    }
+  }
+  .project {
+    display: flex;
+    .text {
+      width: 60%;
+      h2 {
+        margin-bottom: 0px;
+      }
+    }
+    .image {
+      width: 40%;
+      text-align: center;
+    }
+    @media (max-width: 1200px ) {
+      padding: 0px 20px;
+    }
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      padding: 0px 15px;
+      .text {
+        width: 100%;
+      }
+      .image {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+.container {
+  @media (max-width: 1200px) {
+    max-width: 100%;
+  }
+  @media (max-width: 768px) {
+    padding: 0px 20px;
+  }
+}
+
+.get-started {
+  background-image: url("/images/getting-started.png");
+  background-repeat: no-repeat;
+  padding: 60px 0px;
+  .info {
+    font-size: 24px;
+    margin-bottom: 0px;
+  }
+  .button {
+    width: 200px;
+    margin: 0px 10px;
+    padding: 15px;
+  }
+  .button.bg-white {
+    color: $navy-blue;
+  }
+  .button.bg-blue {
+    color: $white;
+  }
+  @media (max-width: 768px) {
+    background-size: cover;
+    .button {
+      width: 100%;
+      margin: 0px;
+      &:first-of-type {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

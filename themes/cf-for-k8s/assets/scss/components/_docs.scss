@@ -1,0 +1,201 @@
+.docs {
+  background-color: $off-white;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: red;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:before {
+    top: 0;
+    background: linear-gradient(rgba($gray-light, 0.08), rgba($gray-light, 0));
+  }
+  &:after {
+    bottom: 0;
+    background: linear-gradient(rgba($gray-light, 0), rgba($gray-light, 0.05));
+  }
+
+  .docs-sidebar {
+    padding: 0;
+    border-right: 1px solid $off-gray;
+    position: relative;
+    max-width: 400px;
+    flex: 0 0 29%;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to right, rgba($gray-light, 0), rgba($gray-light, 0.05));
+      z-index: 1;
+      pointer-events: none;
+    }
+    @media (max-width: 787px) {
+      background-color: rgba($off-gray, 0.25);
+      box-shadow: inset 0 0 10px rgba($gray-light, 0.1);
+      max-width: none;
+      max-width: unset;
+      flex: 0 0 100%;
+      &:before {
+        content: none;
+      }
+      
+      .sidebar {
+        //font-size: 0.9125rem !important;
+        padding: 50px 0px 0px 0px;
+        margin: 0px;
+      }
+    }
+  }
+
+  .docs-content {
+    padding: 2rem 15px;
+    color: $gray-dark;
+    &.col-md-8 {
+      @media (min-width: 769px) {
+        flex: 0 0 71%;
+        max-width: 71%;
+        padding-left: 50px;
+      }
+    }
+
+    h1, .h1,
+    h2, .h2,
+    h3, .h3,
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
+      font-weight: 600;
+      color: $navy-blue;
+      margin-bottom: 1rem;
+      &:not(:first-child) {
+        margin-top: 2rem;
+      }
+      a {
+        text-decoration: none;
+        &.h-anchor {
+          border-bottom: 0;
+          i {
+            margin-left: 0.2em;
+            vertical-align: baseline;
+            font-size: 0.7em;
+            visibility: hidden;
+            border-bottom: 0;
+            color: rgba($gray-light, 0.50);
+          }
+          &:hover {
+            i {
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+
+    h1, .h1 { font-size: 1.875rem; }
+    h2, .h2 { font-size: 22px; }
+    h3, .h3 { font-size: 1.4rem; }
+    h4, .h4,
+    h5, .h5,
+    h6, .h6 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $navy-blue;
+      margin-bottom: 0.25rem;
+    }
+    h4, .h4 { font-size: 1.125rem; }
+
+    pre {
+      background: white;
+      border: 15px solid $off-gray;
+      padding: 15px;
+      font-size: 0.875rem;
+      
+      code {
+        line-height: 1.6;
+      }
+    }
+
+    hr {
+      margin: 2rem 0;
+      margin-left: -2rem;
+      background: transparent linear-gradient(to right, rgba($off-gray, 1), rgba($off-gray, 0));
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      max-width: 48em;
+    }
+
+    a {
+      color: $medium-blue;
+      text-decoration: none;
+      code {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    
+    ul {
+      padding: 0;
+      margin: 12px;
+
+      li {
+        margin-left: 16px;
+        /* background: 0 8px url("/images/icon-arrow.svg") no-repeat;
+        padding-left: 16px;
+        background-size: 8px;
+        list-style-type: none; */
+      }
+      
+      li.list-item-icon {
+        list-style: none;
+        padding-left: 16px;
+        background: 0 8px url("/images/list-item.svg") no-repeat;
+        background-size: 8px;
+      }
+    }
+    .support-links {
+      float: right;
+      margin-top: 8px;
+      .btn-small {
+        width: 150px;
+        padding: 10px;
+        justify-content: center;
+      }
+      a:first-of-type {
+        margin-right: 15px;
+      }
+    }
+    .heading {
+      padding-bottom: 30px;
+    }
+    @media (max-width: 1024px) {
+      .support-links {
+        text-align: right;
+        float: unset;
+        margin-bottom: 20px;
+      }
+      .heading {
+        display: block;
+      }
+    }
+    @media (max-width: 767px) {
+      flex: 0 0 100%;
+      max-width: unset;
+      padding: 20px;
+    }
+  }
+}

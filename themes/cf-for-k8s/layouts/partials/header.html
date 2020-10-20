@@ -1,0 +1,13 @@
+<header class="container">
+  <a href="{{.Site.BaseURL}}" class="logo"><img src="/images/logo.svg" alt="CF For K8s Logo"></a>
+  <input type="checkbox" id="mobile-nav-toggle">
+  <label for="mobile-nav-toggle"></label>
+  <ul>
+    {{ $current := . }}
+    {{ range $.Site.Menus.main }}
+      {{ $topLevel := replace .URL "/" "" }}
+      <li><a class="{{ if or (eq $current.Permalink .URL) (eq $current.Type $topLevel) }}active{{end}}" {{if (hasPrefix .URL "https")}}target='_blank'{{end}} href="{{ .URL }}">{{ .Name }}</a></li>
+    {{ end }}
+    <li><a href="https://github.com/cloudfoundry/cf-for-k8s" class="github-button icon-button bg-blue button">GitHub</a></li>
+  </ul>
+</header>

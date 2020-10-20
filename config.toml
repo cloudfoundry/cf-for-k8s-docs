@@ -1,0 +1,41 @@
+baseURL = "https://cf-for-k8s.io/"
+languageCode = "en-us"
+
+title = "Cloud Foundry for Kubernetes"
+theme = "cf-for-k8s"
+
+pygmentsUseClasses = true
+pygmentsCodefences = true
+
+[markup.goldmark.renderer]
+unsafe= true
+
+[params]
+github_base_url = "https://github.com/cloudfoundry/cf-for-k8s-docs/content/docs"
+slack_invite_url = "https://cloudfoundry.slack.com/archives/CH9LF6V1P"
+description = "Cloud Foundry is an open source cloud platform as a service (PaaS) on which developers can build, deploy, run and scale applications. "
+
+[menu]
+  [[menu.main]]
+  identifier = "home"
+  name       = "Home"
+  url        = "/"
+  weight     = 1
+
+  [[menu.main]]
+  identifier = "features"
+  name       = "Features"
+  url        = "/features"
+  weight     = 2
+
+  [[menu.main]]
+  identifier = "docs"
+  name       = "Docs"
+  url        = "/docs"
+  weight     = 3
+
+  [[menu.main]]
+  identifier = "blog"
+  name       = "Blog"
+  url        = "https://medium.com/@cf-release-integration"
+  weight     = 4

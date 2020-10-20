@@ -1,0 +1,125 @@
+/**********************************
+
+Button
+
+**********************************/
+
+/** Sizes **/
+
+$btn-font-size: 1rem;
+$btn-sm-font-size: .9rem;
+$btn-h-padding: 20px;
+$btn-v-padding: 10px;
+$icon-proportion: 1.30;
+
+%button-base {
+  padding: $btn-v-padding $btn-h-padding;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 300;
+  line-height: 130%;
+  font-size: $btn-sm-font-size;
+  align-items: center;
+}
+
+%button-base:hover {
+  text-decoration: none;
+  opacity: .9;
+}
+
+.btn-small {
+  font-size: $btn-sm-font-size;
+  padding: $btn-v-padding*.75 $btn-h-padding*.75;
+}
+
+/** Colors **/
+
+.button {
+  @extend %button-base;
+  color: white;
+  border: 1px solid #fff;
+}
+
+.button:hover {
+  color: white;
+  text-decoration: none;
+  opacity: .9;
+}
+
+.btn-light {
+  @extend %button-base;
+  color: #000000;
+  border: 1px solid #e0e0e0;
+  &.blue-text {
+    color: $medium-blue;
+    border: 1px solid $medium-blue;
+  }
+}
+
+.btn-light:hover {
+  color: $navy-blue !important;
+  opacity: .75;
+}
+
+/** Special **/
+
+.icon-button {
+  display: flex;
+  width: fit-content;
+  padding-right: $btn-h-padding + 5px; /* makes them look more even to have more right padding */
+}
+
+.icon-button::before {
+  content: '';
+  display: inline-block;
+  align-self: center;
+  margin: 0 10px 0 0;
+  height: 34px;
+  width: 34px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.btn-small.icon-button {
+  padding-right: ($btn-h-padding + 5px) * .75;
+}
+
+.btn-small.icon-button::before {
+  height: $btn-sm-font-size * $icon-proportion;
+  width: $btn-sm-font-size * $icon-proportion;
+  min-width: $btn-sm-font-size * $icon-proportion;
+}
+
+.icon-button.blank::before {
+  width: 0px;
+  min-width: 0px;
+  margin: 0px;
+}
+
+.btn-small.icon-button.blank::before {
+  width: 0px;
+  min-width: 0px;
+}
+
+.button.download-button::before {
+  background-image: url('/images/download-icon.svg');
+}
+
+.button.github-button::before {
+  background-image: url('/images/github-icon.svg');
+}
+
+.btn-light.github-button::before {
+  background-image: url('/images/github-icon-medium-blue.png');
+}
+
+.button.slack-button::before {
+  background-image: url('/images/slack-mark.svg');
+}
+
+.btn-light.slack-button::before {
+  background-image: url('/images/slack-mark.svg');
+  -webkit-filter: brightness(0);
+  filter: brightness(0);
+}

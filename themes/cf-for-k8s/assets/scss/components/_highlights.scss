@@ -1,0 +1,57 @@
+/**********************************
+
+Highlights
+
+**********************************/
+
+.highlights {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  svg path {
+    stroke: $off-gray;
+    stroke-width: 6px;
+    fill: $blue-dark;
+  }
+  .row {
+    margin: 0px;
+  }
+  .block {
+    padding: 25px 50px;
+    &.col-sm {
+      margin: 10px;
+      &:first-of-type {
+        margin-left: 0px;
+      }
+      &:last-of-type {
+        margin-right: 0px;
+      }
+      @media (max-width: 768px) {
+        margin: 0px 0px 20px 0px;
+        &:last-of-type {
+          margin-bottom: 0px;
+        }
+      }
+    }
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 206px;
+    }
+    @media (max-width: 1025px) {
+      padding: 30px;
+    }
+  }
+  @media (max-width: 768px) {
+    .col-sm {
+      flex-basis: auto;
+      margin: 10px 0px;
+      padding: 20px;
+    }
+  }
+  &.row {
+    @media (max-width: 768px) {
+      margin: 20px -20px;
+    }
+  }
+}
