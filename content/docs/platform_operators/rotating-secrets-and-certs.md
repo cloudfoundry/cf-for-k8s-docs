@@ -25,13 +25,12 @@ one certificate.
 
 
 ### Cloud Controller Database Encryption Key
-### Cloud Controller Database Encryption Key
 
-Prior to cf-for-k8s 1.0, rotating the cloud controller db encryption key is a breaking change. Rotating the key will 
+Prior to cf-for-k8s 1.0, rotating the cloud controller db encryption key is a breaking change. Rotating the key will
 require a recreating your environment (including deleting database contents) in order to prevent decryption errors when fetching
 previously-saved data.
 
-If you find you must rotate the encryption key, 
+If you find you must rotate the encryption key,
 
 1. Delete your cf with `kapp delete -a cf`
 1. Then, in your `cf-values.yaml`, you will need to update the following property:
@@ -40,4 +39,4 @@ capi:
   database:
     encryption_key: [KEY]
 ```
-1.Enter a secure value for [KEY] and deploy. 
+1.Enter a secure value for [KEY] and deploy.

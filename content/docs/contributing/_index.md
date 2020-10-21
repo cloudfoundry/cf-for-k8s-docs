@@ -20,7 +20,7 @@ The following sections outline the process to contribute to cf-for-k8s.
 
 ## Code of conduct
 
-All members of the cf-for-k8s community must abide by the [Code of Conduct](community/code-of-conduct.md). Only by respecting each other can we develop a productive, collaborative community. If you would like to report a violation of the code of contact, please contact any member from the [Maintainers list](MAINTAINERS.md).
+All members of the cf-for-k8s community must abide by the [Code of Conduct](/docs/contributing/code-of-conduct/). Only by respecting each other can we develop a productive, collaborative community. If you would like to report a violation of the code of contact, please contact any member from the [Maintainers list](/docs/maintaining/maintainers/).
 
 ## Contributor license agreements
 
@@ -34,7 +34,7 @@ The cf-for-k8s is maintained by projects that are governed by the Project Manage
 
 ## Setting up to contribute
 
-Check out [preparing for development](PREPARING-FOR-DEVELOPMENT.md) to learn about how to setup your local dev environment with cf-for-k8s.
+Check out [preparing for development](/docs/maintaining/preparing-for-development/) to learn about how to setup your local dev environment with cf-for-k8s.
 
 ## Pull requests
 
@@ -61,7 +61,7 @@ Don't hesitate to ping the members in #cf-for-k8s slack channel for help.
 
 ### Getting started with contribution
 
-If you're looking to get started today, you can explore the [good first issue](https://github.com/cloudfoundry/cf-for-k8s/issues?q=is%3Aopen+is%3Aissue+label%3A%22Good+first+issue%22) labelled issues in cf-for-k8s repository. 
+If you're looking to get started today, you can explore the [good first issue](https://github.com/cloudfoundry/cf-for-k8s/issues?q=is%3Aopen+is%3Aissue+label%3A%22Good+first+issue%22) labelled issues in cf-for-k8s repository.
 
 If you're looking to take on more, you can explore the [help wanted](https://github.com/cloudfoundry/cf-for-k8s/issues?q=is%3Aopen+is%3Aissue+label%3A%22Help+wanted%22) labelled issues to get started.
 

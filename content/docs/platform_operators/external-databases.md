@@ -5,8 +5,7 @@ summary="Using external databases"
 
 # Using external databases
 
-
-You can use an external database for the cloud controller and uaa by providing following values:
+You can use an external database for the CF API and UAA by providing following values:
 
 ```yaml
 #@data/values
@@ -55,8 +54,8 @@ As prerequisite, you need to execute the following steps to configure your postg
     ```
 
 2. Run the following script. It will
-   * create one database each for Cloud Controller and UAA
-   * create one user each for Cloud Controller and UAA
+   * create one database each for CF API and UAA
+   * create one user each for CF API and UAA
    * activate the `citext` extension for each of these databases
 
     The following uses the python module [yq](https://kislyuk.github.io/yq/).
@@ -90,11 +89,11 @@ As prerequisite, you need to execute the following steps to configure your postg
 
 ## Installation of an internal database
 
-If both, capi and uaa, are configured to use an external database, no internal database will be deployed.
+If both CF API and UAA, are configured to use an external database, no internal database will be deployed.
 
 ## Example with external RDS database
 
-In the following section, we will show how to setup an AWS RDS database and configure it as the datebase to be used for Cloud Controller and UAA. Please note that the values passed for RDS creation are **not suitable for production environments**.
+In the following section, we will show how to setup an AWS RDS database and configure it as the datebase to be used for CF API and UAA. Please note that the values passed for RDS creation are **not suitable for production environments**.
 
 1. Create a RDS database. The following command will create a small database for development. Please adjust the settings to your requirements.
 
@@ -169,9 +168,9 @@ In the following section, we will show how to setup an AWS RDS database and conf
     ...
     ```
 
-1. [Install cf-for-k8s](../deploy.md)
+1. [Install cf-for-k8s](/docs/deploying/)
 
-    i. Configure your [`cf-values.yml`](../deploy.md#cf-values) file
+    i. Configure your [`cf-values.yml`](/docs/deploying/#cf-values) file
     i. Render the final K8s template to raw K8s yaml. Pass the `"$DB_VALUES_FILE"` file as additional file to `ytt`
 
     ```bash

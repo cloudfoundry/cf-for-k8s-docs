@@ -1,55 +1,59 @@
 +++
-title="Gateway Access Logs"
-summary="Gateway Access Logs"
+title="Sidecar Access Logs"
+summary="Sidecar Access Logs"
 +++
 
 ## Access Logs
 
 ### How to view access logs?
 
-Ingress traffic to Cloud Foundry is proxied through the `istio-ingressgateway`
-pods which prints access logs to stdout. To view them:
+Traffic flows through the sidecar containers on sidecar enabled pods, which
+prints access logs to stdout. For example, this is how you might view them for your apps:
 
 ```
-kubectl logs -l app=istio-ingressgateway -c istio-proxy -n istio-system
+kubectl logs app-pod -c istio-proxy -n cf-workloads
 ```
+
+Any namespace with the label `istio-injection=enabled` will add a sidecar
+`istio-proxy` container to all pods in the namespace. You can try the above
+command for any pod in a namespace with the label `istio-injection=enabled`.
 
 ### Example access log line
 
 ```json
 {
-  "app_id": "58d9bc59-3993-4541-90fb-efe8f20acab9",
-  "authority": "app.example.com",
-  "bytes_received": "0",
-  "bytes_sent": "846",
-  "downstream_local_address": "10.56.1.110:80",
-  "downstream_remote_address": "203.0.113.4:13456",
-  "duration": "3",
+  "app_id": "e96aef43-873a-46db-8d3e-4bc6acd70da9",
+  "authority": "myapp.apps.com",
+  "bytes_received": "0"
+  "bytes_sent": "9593",
+  "downstream_local_address": "10.52.5.11:8080",
+  "downstream_remote_address": "34.123.54.126:0",
+  "duration": "22",
   "method": "GET",
-  "organization_id": "28a72883-be4e-4124-9f79-f8429a2d1256",
-  "path": "/headers",
+  "organization_id": "d390d3f0-f349-481a-8f13-8f1f76ab12ed",
+  "path": "/",
   "process_type": "-",
   "protocol": "HTTP/1.1",
   "referer": "-",
-  "request_id": "eb36b92b-f757-4ca3-b27c-cef2e7e06944",
-  "requested_server_name": "-",
+  "request_id": "0e5e3948-e8bf-4668-8275-5b87eadcd983",
+  "requested_server_name": "outbound_.8080_._.s-93d15c95-b5c3-45e0-bb16-26172767b322.cf-workloads.svc.cluster.local",
   "response_code": "200",
-  "response_duration": "3",
+  "response_duration": "22",
   "response_flags": "-",
   "response_tx_duration": "0",
-  "space_id": "9765ce8d-5098-4756-a270-490c32233e4a",
-  "start_time": "2020-02-07T00:47:45.516Z",
-  "upstream_cluster": "outbound|8080||s-d77075c0-5c71-4d93-8c39-b8311c19be5d.cf-apps.svc.cluster.local",
-  "upstream_host": "10.56.1.111:8080",
-  "upstream_local_address": "-",
-  "upstream_service_time": "3",
+  "space_id": "471a8af4-3627-4324-bca9-3f69b2e80ab2",
+  "start_time": "2020-09-10T20:45:01.808Z",
+  "upstream_cluster": "inbound|8080|http|s-93d15c95-b5c3-45e0-bb16-26172767b322.cf-workloads.svc.cluster.local",
+  "upstream_host": "127.0.0.1:8080",
+  "upstream_local_address": "127.0.0.1:53338",
+  "upstream_service_time": "21",
   "upstream_transport_failure_reason": "-",
-  "user_agent": "curl/7.54.0",
-  "x_b3_parentspanid": "-",
-  "x_b3_spanid": "dacd7b5fc2e62cb7",
-  "x_b3_traceid": "a6a1631bae96ac75dacd7b5fc2e62cb7",
-  "x_forwarded_for": "203.0.113.4",
-  "x_forwarded_proto": "http"
+  "user_agent": "curl/7.68.0",
+  "x_b3_parentspanid": "7cbd7a861229cc6a",
+  "x_b3_spanid": "a8ba1d9c16d7437c",
+  "x_b3_traceid": "efff41366f43d46c7cbd7a861229cc6a",
+  "x_forwarded_for": "34.123.54.126",
+  "x_forwarded_proto": "https",
 }
 ```
 
@@ -57,16 +61,15 @@ kubectl logs -l app=istio-ingressgateway -c istio-proxy -n istio-system
 
 The access log contains the following fields for duration in milliseconds
 
-- `upstream_service_time`: The time from when the gateway sends a request to the sidecar to when it recieves a response from the sidecar
-- `duration`: The time from when the gateway receives a request from the client to when it sends a response to the client
-  to the last byte out
-- `response_duration`: The time from when the gateway receives a request from the client to when it receives a response from the sidecar
-- `response_tx_duration`: The time a response spends in the gateway
+- `upstream_service_time`: The time from when the sidecar sends a request to the app to when it receives a response from the app
+- `duration`: The time from when the sidecar receives a request from the gateway to when it sends a response to the gateway
+- `response_duration`: The time from when the sidecar receives a request from the gateway to when it receives a response from the app
+- `response_tx_duration`: The time a response spends in the sidecar
 
-![](assets/duration-fields.jpg)
+![Sidecar Graph](/docs/platform_operators/assets/sidecar-graph.png)
 
 #### Determining App Latency vs Platform Latency
-To calculate the time a request spends within the gateway subtract `upstream_service_time` from `response_duration`
+To calculate the time a request spends within the sidecar subtract `upstream_service_time` from `response_duration`
 
 ### Fields
 
@@ -120,7 +123,7 @@ format](https://www.envoyproxy.io/docs/envoy/latest/configuration/observability/
   the request including network latency.; see [Duration Fields](#duration-fields) and these [Envoy
   docs](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-upstream-service-time)
   for more information
-* `upstream_transport_failure_reason`: If upstream connection failed due to a TLS failure. This field currently does not indicate any [Transport Layer](https://osi-model.com/transport-layer/) failures. 
+* `upstream_transport_failure_reason`: If upstream connection failed due to a TLS failure. This field currently does not indicate any [Transport Layer](https://osi-model.com/transport-layer/) failures.
   transport socket (e.g. TLS handshake), provides the failure reason from the
   transport socket
 * `user_agent`: HTTP request `User-Agent` header

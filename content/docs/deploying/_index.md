@@ -28,9 +28,9 @@ expand=true
 
 You need the following CLIs on your system to be able to run the script:
 
-- `ytt` [install link](https://k14s.io/#install) [github repo](https://github.com/k14s/ytt)
+- `ytt` [install link](https://carvel.dev/#install) [github repo](https://github.com/k14s/ytt)
   - cf-for-k8s uses `ytt` to create and maintain reusable YAML templates. You can visit the ytt [playground](https://get-ytt.io/) to learn more about its templating features.
-- `kapp` [install link](https://k14s.io/#install) [github repo](https://github.com/k14s/kapp)
+- `kapp` [install link](https://carvel.dev/#install) [github repo](https://github.com/k14s/kapp)
   - cf-for-k8s uses `kapp` to manage its lifecycle. `kapp` will first show you a list of resources it plans to install on the cluster and then will attempt to install those resources. `kapp` will not exit until all resources are deployed and their status is running. See all options by running `kapp help`.
 - [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [`cf cli`](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html) (v7+)
@@ -75,10 +75,12 @@ Currently, we test the following two container registries:
 1. Clone and initialize this git repository:
 
    ```console
-   git clone https://github.com/cloudfoundry/cf-for-k8s.git
+   git clone https://github.com/cloudfoundry/cf-for-k8s.git -b main
    cd cf-for-k8s
    TMP_DIR=<your-tmp-dir-path> ; mkdir -p ${TMP_DIR}
    ```
+
+   Note: if you would like the latest release, replace the branch reference in the clone command with that release tag. (E.G. `-b v1.0.0`)
 
 1. Create a "CF Installation Values" file and configure it<a name="cf-values"></a>:
 
@@ -267,10 +269,10 @@ You can delete the cf-for-k8s deployment by running the following command:
 ## Additional resources
 Use the following resources to enable additional features in cf-for-k8s:
 
-- [Setup ingress certs with letsencrypt](platform_operators/setup-ingress-certs-with-letsencrypt.md)
-- [Setup static loadbalancer IP](platform_operators/setup-static-loadbalancer-ip.md)
-- [Setup an external database](platform_operators/external-databases.md), which we recommend for Production environments
-- [Setup an external blobstore](platform_operators/external-blobstore.md)
+- [Setup ingress certs with letsencrypt](/docs/platform_operators/setup-ingress-certs-with-letsencrypt/)
+- [Setup static loadbalancer IP](/docs/platform_operators/setup-static-loadbalancer-ip/)
+- [Setup an external database](/docs/platform_operators/external-databases/), which we recommend for Production environments
+- [Setup an external blobstore](/docs/platform_operators/external-blobstore/)
 
 ## Roadmap and milestones
 You can find the project roadmap (github project) [here](https://github.com/cloudfoundry/cf-for-k8s/projects/4) and our upcoming milestones [here](https://github.com/cloudfoundry/cf-for-k8s/milestones). Feel free to ask questions in the [#cf-for-k8s channel](https://cloudfoundry.slack.com/archives/CH9LF6V1P) in the CloudFoundry slack or submit new feature requests or issues on this repo.
