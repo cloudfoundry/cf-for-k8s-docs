@@ -45,7 +45,7 @@ Note: if you would like to use the latest release, replace the branch reference 
 Next, create the local kubernetes cluster that we will deploy cf-for-k8s to presently:
 
 ```
-kind create cluster --config=./deploy/kind/cluster.yml --image kindest/node:v1.19.1
+kind create cluster --config=./deploy/kind/cluster.yml --image kindest/node:v1.20.2
 ```
 NOTE: the versions of kubernetes that cf-for-k8s supports are [here](https://github.com/cloudfoundry/cf-for-k8s/blob/develop/supported_k8s_versions.yml).
 
