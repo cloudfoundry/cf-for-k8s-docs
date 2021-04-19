@@ -20,8 +20,6 @@ summary="Developing CF Components"
   * [Local Development Workflow](#local-development-workflow)
   * [Sample kbld config](#sample-kbld-config)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 ## High-Level Flow
 
 ### Step 1: Do local development
