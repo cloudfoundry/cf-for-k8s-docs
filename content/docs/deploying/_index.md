@@ -20,8 +20,6 @@ expand=true
 - [Additional resources](#additional-resources)
 - [Roadmap and milestones](#roadmap-and-milestones)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 ## Prerequisites
 
 ### Required Tools
@@ -136,37 +134,21 @@ Currently, we test the following two container registries:
 
          Update the `gcp_project_id` portion to your GCP Project ID and change `contents_of_service_account_json` to be the entire contents of your GCP Service Account JSON.
 
-1. provide log destinations:
-
-    1. To send logs to a destination via syslog you can setup app log destinations in your `cf-values.yml` file:
-
-        ```yml
-        app_log_destinations:
-        #@overlay/append
-        - host: <hostname>
-          port: <port_number>
-          transport: <tls/tcp> #defaults to tls
-          insecure_disable_tls_validation: <false/true> #defaults false
-        #@overlay/append
-        - host: <hostname>
-          port: <port_number>
-          transport: <tls/tcp> #defaults to tls
-          insecure_disable_tls_validation: <false/true> #defaults false
-        ```
-
 1. Run the following commands to install Cloud Foundry on your Kubernetes cluster:
 
-      i. Render the final K8s template to raw K8s configuration
+      1. Render the final K8s template to raw K8s configuration
 
          ```console
          ytt -f config -f ${TMP_DIR}/cf-values.yml > ${TMP_DIR}/cf-for-k8s-rendered.yml
          ```
-
-      ii. Install using `kapp` and pass the above K8s configuration file
+ 
+      1. Install using `kapp` and pass the above K8s configuration file
 
          ```console
          kapp deploy -a cf -f ${TMP_DIR}/cf-for-k8s-rendered.yml -y
          ```
+      
+      1. Save the values file somewhere secure (remember, it contains secrets!) for future upgrades. You also may want to consider saving the final rendered K8s configuration file for future reference.
 
    Once you run the command, it should take about 10 minutes or less, depending on your cluster bandwidth and size. `kapp` will provide updates on pending resource creations in the cluster and will wait until all resources are created and running. Here is a sample snippet from `kapp` output:
 
@@ -212,7 +194,7 @@ Currently, we test the following two container registries:
 
    ```console
    cf auth admin <cf-values.yml.cf-admin_password>
-   # or using yq: cf auth admin "$(yq -r '.cf_admin_password' ${TMP_DIR}/cf-values.yml)"
+   # or using python yq: cf auth admin "$(yq -r '.cf_admin_password' ${TMP_DIR}/cf-values.yml)"
    ```
 
 1. Create an org/space for your app:
@@ -245,7 +227,7 @@ Currently, we test the following two container registries:
    #0 running 2020-03-18T02:24:51Z 0.0% 0 of 1G 0 of 1G
    ```
 
-   </br>
+   <br />
 
 1. Validate the app is reachable over **https**:
 
@@ -269,10 +251,10 @@ You can delete the cf-for-k8s deployment by running the following command:
 ## Additional resources
 Use the following resources to enable additional features in cf-for-k8s:
 
-- [Setup ingress certs with letsencrypt](/docs/platform_operators/setup-ingress-certs-with-letsencrypt/)
-- [Setup static loadbalancer IP](/docs/platform_operators/setup-static-loadbalancer-ip/)
-- [Setup an external database](/docs/platform_operators/external-databases/), which we recommend for Production environments
-- [Setup an external blobstore](/docs/platform_operators/external-blobstore/)
+- [Setup ingress certs with letsencrypt](/docs/platform_operators/setup-ingress-certs-with-letsencrypt)
+- [Setup static loadbalancer IP](/docs/platform_operators/setup-static-loadbalancer-ip)
+- [Setup an external database](/docs/platform_operators/external-databases), which we recommend for Production environments
+- [Setup an external blobstore](/docs/platform_operators/external-blobstore), which we recommend for Production environments
 
 ## Roadmap and milestones
 You can find the project roadmap (github project) [here](https://github.com/cloudfoundry/cf-for-k8s/projects/4) and our upcoming milestones [here](https://github.com/cloudfoundry/cf-for-k8s/milestones). Feel free to ask questions in the [#cf-for-k8s channel](https://cloudfoundry.slack.com/archives/CH9LF6V1P) in the CloudFoundry slack or submit new feature requests or issues on this repo.

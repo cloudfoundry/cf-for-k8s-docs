@@ -8,7 +8,7 @@ summary="Deploy CF for K8s in CI"
 
 ## Prerequisites
 
-You will need the same set of prerequisites listed in the [Deploy CF for K8s](/docs/deploying/) documentation. The CLIs will need to be available in the image used by your CI system. The [Dockerfiles in this repo](https://github.com/cloudfoundry/cf-for-k8s/tree/main/ci/dockerfiles), especially [cf-for-k8s-ci](https://github.com/cloudfoundry/cf-for-k8s/blob/main/ci/dockerfiles/cf-for-k8s-ci/Dockerfile) may be helpful.
+You will need the same set of prerequisites listed in the [Deploy CF for K8s](/docs/deploying#prerequisites) documentation. The CLIs will need to be available in the image used by your CI system. The [Dockerfiles in this repo](https://github.com/cloudfoundry/cf-for-k8s/tree/main/ci/dockerfiles), especially [cf-for-k8s-ci](https://github.com/cloudfoundry/cf-for-k8s/blob/main/ci/dockerfiles/cf-for-k8s-ci/Dockerfile) may be helpful.
 
 ## Available Scripts
 
@@ -45,10 +45,10 @@ There are a few Docker images maintained by us that can be used for a CI pipelin
 
 | Image Tag | Description |
 |---|----|
-| `relintdockerhubpushbot/cf-for-k8s-ci` | This image contains everything required to generate your installation values and install CF for K8s to a K8s cluster. |
-| `relintdockerhubpushbot/cf-test-runner` | This image contains everything required to run the smoke tests. |
-| `relintdockerhubpushbot/cf-for-k8s-azure` | Used for deploying cf-for-k8s onto an Azure (AKS) cluster. |
+| `cloudfoundry/cf-for-k8s-ci` | Our catch-all image. It contains everything required to generate your installation values and install CF for K8s to a K8s cluster. |
+| `cloudfoundry/cf-for-k8s-aws` | Used for deploying cf-for-k8s onto an Amazon (EKS) cluster. |
+| `cloudfoundry/cf-for-k8s-azure` | Used for deploying cf-for-k8s onto an Azure (AKS) cluster. |
 
 ## Concourse Example
 
-You can see an example of how we combined these scripts in our own CI pipeline [here](https://github.com/cloudfoundry/cf-for-k8s/blob/main/ci/pipelines/cf-for-k8s-main.yml).
+You can see an example of how we combined these scripts in our own CI pipeline [here](https://github.com/cloudfoundry/cf-for-k8s/blob/main/ci/pipelines/cf-for-k8s.yml).

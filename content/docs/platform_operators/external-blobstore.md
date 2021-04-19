@@ -5,6 +5,10 @@ summary="Using external blobstore"
 
 # Using an external blobstore
 
+The out-of-the-box blobstore is in support of the kick-the-tyres user and should just work.
+
+For all other users we recommend configuring your deployment with an external blobstore.
+
 1. Create the necessary buckets using `aws-cli`:
 
     ```

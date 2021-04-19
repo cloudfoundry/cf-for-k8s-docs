@@ -25,11 +25,10 @@ You’ll also need a few CLIs before you start:
 - [kind](https://kind.sigs.k8s.io/docs/user/quick-start/), the CNCF project for creating kubernetes clusters locally
 - [ytt](https://carvel.dev/#install), the cli used to render kubernetes templates
 - [kapp](https://carvel.dev/#install), the cli used to deploy cf-for-k8s
-- [yq](https://github.com/mikefarah/yq); a cli tool for extracting information from yaml documents
 - [BOSH CLI](https://bosh.io/docs/cli-v2-install/#install); a handy tool to generate self signed certs and passwords, used by generate-values
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git); the tool we use to interact with the cf-for-k8s repository
 - a [Dockerhub](https://hub.docker.com) account; cf-for-k8s will use this account to store your application images
-- [cf](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html), the cli used to interact with Cloud Foundry
+- [cf CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html) (**version 7+**), the cli used to interact with Cloud Foundry 
 
 ## Installing Cf-for-K8s
 
@@ -48,7 +47,7 @@ Next, create the local kubernetes cluster that we will deploy cf-for-k8s to pres
 ```
 kind create cluster --config=./deploy/kind/cluster.yml --image kindest/node:v1.19.1
 ```
-NOTE: the versions of kubernetes that cf-for-k8s supports are [here](https://github.com/cloudfoundry/cf-for-k8s/blob/master/supported_k8s_versions.yml).
+NOTE: the versions of kubernetes that cf-for-k8s supports are [here](https://github.com/cloudfoundry/cf-for-k8s/blob/develop/supported_k8s_versions.yml).
 
 Create your cf values file. This is the file that configures your deployment:
 
@@ -94,7 +93,7 @@ When deployment has finished you can log into Cloud Foundry:
 
 ```
 $ cf api api.vcap.me --skip-ssl-validation
-$ cf auth admin `cat ${TMP_DIR}/cf-values.yml | yq -r .cf_admin_password`
+$ cf auth admin "$(grep cf_admin_password ${TMP_DIR}/cf-values.yml | cut -d" " -f2)"
 ```
 
 ## Experiencing your first `cf push`
@@ -119,7 +118,7 @@ $ cd test-app
 $ cf push test-app
 ```
 
-You will notice that what we pushed is source code. Yet Kubernetes runs containers. Just some of the magic of Cloud Foundry is is that it can perform the staging and deployment of your application. Leaving you to concentrate on your code.
+You will notice that what we pushed is source code. Yet Kubernetes runs containers. Just some of the magic of Cloud Foundry is is that it can perform the staging and deployment of your application. Leaving you to concentrate on your code. 
 
 Once deployed, open your browser and visit test-app.vcap.me:
 
