@@ -13,7 +13,10 @@ unsafe= true
 [params]
 github_base_url = "https://github.com/cloudfoundry/cf-for-k8s-docs"
 slack_invite_url = "https://cloudfoundry.slack.com/archives/CH9LF6V1P"
-description = "Cloud Foundry is an open source cloud platform as a service (PaaS) on which developers can build, deploy, run and scale applications. "
+description = "Cloud Foundry is an open source cloud platform as a service (PaaS) on which developers can build, deploy, run and scale applications."
+version = "v3.0.0"
+release_notes_url = "https://github.com/cloudfoundry/cf-for-k8s/releases/tag/"
+
 
 [menu]
   [[menu.main]]
