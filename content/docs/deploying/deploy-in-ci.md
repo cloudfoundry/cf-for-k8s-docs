@@ -51,4 +51,4 @@ There are a few Docker images maintained by us that can be used for a CI pipelin
 
 ## Concourse Example
 
-You can see an example of how we combined these scripts in our own CI pipelines [here](https://github.com/cloudfoundry/cf-for-k8s/tree/main/ci/pipelines).
+You can see an example of how we combined these scripts in our own CI pipeline [here](https://github.com/cloudfoundry/cf-for-k8s/blob/main/ci/pipelines/cf-for-k8s-main.yml).
