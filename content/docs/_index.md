@@ -66,9 +66,16 @@ load_balancer:
   enable: false
 metrics_server_prefer_internal_kubelet_address: true
 remove_resource_requirements: true
+EOF
+```
+
+If you are using Kubernetes cluster versions 1.18 or 1.19, include this additional value in your install values file:
+```
+$ cat << EOF >> ${TMP_DIR}/cf-values.yml
 use_first_party_jwt_tokens: true
 EOF
 ```
+
 NOTES:
 1. You must supply an OCI-compliant container registry. Dockerhub is recommended.
 2. The additional properties configure your cf-for-k8s to run on a local kind cluster.

@@ -96,11 +96,16 @@ Configuration Notes:
    enable_automount_service_account_token: true
    metrics_server_prefer_internal_kubelet_address: true
    remove_resource_requirements: true
-   use_first_party_jwt_tokens: true
    
    load_balancer:
      enable: false
    ```
+
+   - If you are using Kubernetes cluster versions 1.18 or 1.19, include this additional value in your install values file:
+   ```yaml
+   use_first_party_jwt_tokens: true
+   ```
+
 
 3. Once the `kapp deploy` succeeds, you should be able to run `cf api api.vcap.me --skip-ssl-validation`, etc
 
@@ -153,6 +158,10 @@ Configuration Notes:
    ```yaml
    remove_resource_requirements: true
    enable_automount_service_account_token: true
+   ```
+
+   - If you are using Kubernetes cluster versions 1.18 or 1.19, include this additional value in your install values file:
+   ```yaml
    use_first_party_jwt_tokens: true
    ```
 
