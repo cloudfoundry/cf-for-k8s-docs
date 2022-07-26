@@ -69,7 +69,7 @@ Configuration Notes:
    ```console
    # from the cf-for-k8s repo/directory
    # NOTE: this project uses python yq module (https://kislyuk.github.io/yq/)
-   k8s_minor_version="$(yq -r .newest_version supported_k8s_versions.yml)"  # or k8s_minor_version="1.17"
+   k8s_minor_version="$(yq -r .newest_version supported_k8s_versions.yml)"
    patch_version=$(wget -q https://registry.hub.docker.com/v1/repositories/kindest/node/tags -O - | \
      jq -r '.[].name' | grep -E "^v${k8s_minor_version}.[0-9]+$" | \
      cut -d. -f3 | sort -rn | head -1)
@@ -101,7 +101,7 @@ Configuration Notes:
      enable: false
    ```
 
-   - If you are using Kubernetes cluster versions 1.18 or 1.19, include this additional value in your install values file:
+   - If you are using Kubernetes cluster versions 1.19, include this additional value in your install values file:
    ```yaml
    use_first_party_jwt_tokens: true
    ```

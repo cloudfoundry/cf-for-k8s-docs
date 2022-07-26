@@ -52,9 +52,9 @@ Some releases of cf-for-k8s may include Istio upgrades (refer to the release not
 
 For example, consider the following scenario:
 
-* cf-for-k8s version _x_ includes Istio 1.7
-* cf-for-k8s version _y_ includes Istio 1.8
-* cf-for-k8s version _z_ includes Istio 1.9
+* cf-for-k8s version _x_ includes Istio 1.12
+* cf-for-k8s version _y_ includes Istio 1.13
+* cf-for-k8s version _z_ includes Istio 1.14
 
 If you are currently on cf-for-k8s version _x_ **you must** first upgrade to version _y_ before upgrading to version _z_ to upgrade Istio successfully with minimal downtime.
 

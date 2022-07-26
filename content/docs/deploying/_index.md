@@ -39,7 +39,7 @@ You need the following CLIs on your system to be able to run the script:
 
 To deploy cf-for-k8s as is, the cluster should:
 
-- be running Kubernetes version within range 1.16.x to 1.19.x
+- be running Kubernetes version within range 1.19.x to 1.22.x
 - have a minimum of 5 nodes
 - have a minimum of 4 CPU, 15GB memory per node
 - if PodSecurityPolicies are enforced on the cluster, [pods must be allowed to
